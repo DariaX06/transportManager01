@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_cabinet.css') }}">
+    <link rel="stylesheet" href="{{ css_file }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <div class="title">transport manager</div>
+    </header>
+    <main role="main" class="container">
+        <ul class="menu">
+
+            {% if session.get('login_type') == 'dispatcher' %}
+                {% if content == 'transport' %}
+                    <li class="active"><a href="/dispatcher/transport">Транспорт</a></li>
+                {% else %}
+                    <li><a href="/dispatcher/transport">Транспорт</a></li>
+                {% endif %}
+
+                {% if content == 'applications' %}
+                    <li class="active"><a href="/dispatcher/applications">Заявки</a></li>
+                {% else %}
+                    <li><a href="/dispatcher/applications">Заявки</a></li>
+                {% endif %}
+
+                {% if content == 'customers' %}
+                    <li class="active"><a href="/dispatcher/customers">Сотрудники</a></li>
+                {% else %}
+                    <li><a href="/dispatcher/customers">Сотрудники</a></li>
+                {% endif %}
+
+                {% if content == 'tasks' %}
+                    <li class="active"><a href="/dispatcher/tasks">Задачи</a></li>
+                {% else %}
+                    <li><a href="/dispatcher/tasks">Задачи</a></li>
+                {% endif %}
+            {% else %}
+                {% if content == 'transport' %}
+                    <li class="active"><a href="/customer/transport">Транспорт</a></li>
+                {% else %}
+                    <li><a href="/customer/transport">Транспорт</a></li>
+                {% endif %}
+
+                {% if content == 'applications' %}
+                    <li class="active"><a href="/customer/applications">Заявки</a></li>
+                {% else %}
+                    <li><a href="/customer/applications">Заявки</a></li>
+                {% endif %}
+
+                {% if content == 'customers' %}
+                    <li class="active"><a href="/customer/dispatcher">Диспетчер</a></li>
+                {% else %}
+                    <li><a href="/customer/dispatcher">Диспетчер</a></li>
+                {% endif %}
+
+                {% if content == 'tasks' %}
+                    <li class="active"><a href="/customer/tasks">Задачи</a></li>
+                {% else %}
+                    <li><a href="/customer/tasks">Задачи</a></li>
+                {% endif %}
+            {% endif %}
+
+            <li><a href="/logout">Выход</a></li>
+        </ul>
+        <div class="content">
+            <div class="content_title">{{ title }}</div>
+            <div class="content_block">
+                {% block content %}{% endblock %}
+            </div>
+
+        </div>
+    </main>
+    <script src="/static/js/cabinet.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=0a13b5d0-1f19-4b39-8acf-e24fb9403fc5" type="text/javascript"></script>
+    <script src="/static/js/map.js" type="text/javascript"></script>
+</body>
+</html>

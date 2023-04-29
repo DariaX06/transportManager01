@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "BebasNeue"; 
+    src: url("/static/fonts/BebasNeue-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(/static/images/background.jpg);
+    background-size: cover;
+}
+.cover{
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form_title{
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+form{
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #111015;
+    border-radius: 20px;
+    color: #fff;
+}
+select, textarea, input{
+    min-width: 300px;
+    height: 40px;
+    margin: 10px 0;
+    background: #FFFFFF;
+    border: 1px solid #AD7C54;
+    border-radius: 5px;
+    color: #111015;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
+.button{
+    background-color: rgba(0, 0, 0, 0);
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: #AD7C54;
+
+    border: 3px solid #AD7C54;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.button:hover{
+    color: #111015;
+    background-color: #AD7C54;
+}
+.error{
+    color: #781A1A;
+}

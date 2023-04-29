@@ -1,0 +1,118 @@
+.item{
+    width: 100%;
+    margin: 15px 0;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+}
+.item_head{
+    width: calc(100% - 30px);
+    padding: 20px 15px;
+    background-color: #AD7C54;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.item_head_text{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.item_head_text > p{
+    margin: 0 15px;
+}
+.item_head_btns{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.item_head_btn{
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+.expand{
+    background-image: url(/static/images/arrow.svg);
+}
+.expand.active{
+    transform: rotate(180deg);
+}
+.edit{
+    background-image: url(/static/images/edit.svg);
+}
+.delete{
+    background-image: url(/static/images/cross.svg);
+}
+.item_info{
+    width: calc(100% - 60px);
+    padding: 10px 30px;
+    background-color: #EFEFEF;
+    color: #111015;
+    display: none;
+}
+.item_info.active{
+    display: block;
+}
+.item_info > p{
+    margin: 10px 0;
+}
+.item_info_btns{
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.item_info_btn{
+    width: 200px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #13414E;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #13414E;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.item_info_btn:hover, .button:hover{
+    color: #fff;
+    background-color: #13414E;
+}
+.delete_t, .reject, .stop{
+    border: 3px solid #781A1A;
+    color: #781A1A;
+
+}
+.delete_t:hover, .reject:hover, .stop:hover{
+    color: #fff;
+    background-color: #781A1A;
+
+}
+.item_info_btn:first-child{
+    margin-right: 30px;
+}
+.button{
+    text-decoration: none;
+    padding: 15px 30px;
+    border: 3px solid #13414E;
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: #13414E;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.map{
+    width: 400px;
+    height: 300px;
+}

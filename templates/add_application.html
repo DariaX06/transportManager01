@@ -1,0 +1,42 @@
+{% extends "base_form.html" %}
+
+{% block content %}
+    <form action="" method="post">
+        <div class="form_title">Оформить заявку</div>
+            {{ form.hidden_tag() }}
+            {% if transport_id %}
+                {{ form.transport_id(class="input_form select", type="select", value=transport_id) }}
+            {% else %}
+                {{ form.transport_id(class="input_form select", type="select") }}
+            {% endif %}
+            {% for error in form.transport_id.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+            {{ form.task(class="input_form", type="textarea", placeholder='Название') }}
+            {% for error in form.task.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+            {{ form.start(class="input_form", type="date", placeholder='Координаты') }}
+            {% for error in form.start.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            {{ form.end(class="input_form", type="date", placeholder='Координаты') }}
+            {% for error in form.end.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+
+        {{ form.submit(type="submit", class="button") }}
+        <div class="error">{{ message }}</div>
+    </form>
+{% endblock %}

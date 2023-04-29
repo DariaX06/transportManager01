@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ css_file }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <main role="main" class="container">
+        <div class="block1">
+            <div class="block_cover">
+                <div class="block_cover_blur">
+                    <h1>transport<br>manager</h1>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </main>
+<script src="/static/js/resize.js"></script>
+</body>
+</html>

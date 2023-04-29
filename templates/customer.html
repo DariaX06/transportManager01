@@ -1,0 +1,107 @@
+{% extends "base_cabinet.html" %}
+
+{% block content %}
+
+{% if content == 'applications' %}
+
+    {% for item in applications%}
+        <div class="item">
+            <div class="item_head">
+                <div class="item_head_text">
+                    <p>{{ item.customer.name }}</p>
+                    <p>{{ item.transport.name }}</p>
+                    <p>{{ item.start.strftime('%d.%m.%Y') }} - {{ item.end.strftime('%d.%m.%Y') }}</p>
+                </div>
+                <div class="item_head_btns">
+                    <div class="item_head_btn expand"></div>
+                </div>
+            </div>
+            <div class="item_info">
+                <p>От кого: {{ item.customer.name }}</p>
+                <p>Транспорт: {{ item.transport.name }}</p>
+                <p>Временной промежуток: {{ item.start.strftime('%d.%m.%Y') }} - {{ item.end.strftime('%d.%m.%Y') }}</p>
+                <p>Причина: {{ item.task }}</p>
+                <div class="item_info_btns">
+                    <a href="/customer/edit_application/{{ item.id }}" class="item_info_btn">РЕДАКТИРОВАТЬ</a>
+                    <a href="/customer/delete_application/{{ item.id }}" class="item_info_btn">УДАЛИТЬ</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <a href="/customer/add_application" class="button">ОФОРМИТЬ ЗАЯВКУ</a>
+
+{% elif content == 'transport' %}
+    
+    {% for item in transport%}
+        <div class="item">
+            <div class="item_head">
+                <div class="item_head_text">
+                    <p>{{ item.name }}</p>
+                    <p>{% if item.status %} Свободен {% else %} Занят {% endif %}</p>
+                    <p>{% if item.state %} Исправен {% else %} Неисправен {% endif %}</p>
+                </div>
+                <div class="item_head_btns">
+                    <div class="item_head_btn expand"></div>
+                </div>
+            </div>
+            <div class="item_info">
+                <p>Местоположение</p>
+                <div class="map"></div>
+                <div class="item_info_btns">
+                    <a href="/customer/add_application" class="item_info_btn refresh">ОФОРМИТЬ ЗАЯВКУ</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        
+{% elif content == 'dispatcher' %}
+    
+    <div class="item">
+        <div class="item_head">
+            <div class="item_head_text">
+                <p>{{ dispatcher.name }}</p>
+                <p>{{ dispatcher.company }}</p>
+                <p>{{ dispatcher.email }}</p>
+            </div>
+            <div class="item_head_btns">
+                <div class="item_head_btn expand"></div>
+            </div>
+        </div>
+        <div class="item_info">
+            <p>ФИО: {{ dispatcher.name }}</p>
+            <p>Компания: {{ dispatcher.company }}</p>
+            <p>Эл. почта: {{ dispatcher.email }}</p>
+            <p>Номер телефона: {{ dispatcher.tel }}</p>
+        </div>
+    </div>
+    
+
+{% elif content == 'tasks' %}
+    
+    {% for item in tasks%}
+        <div class="item">
+            <div class="item_head">
+                <div class="item_head_text">
+                    <p>{{ item.customer.name }}</p>
+                    <p>{{ item.transport.name }}</p>
+                    <p>{{ item.start.strftime('%d.%m.%Y') }} - {{ item.end.strftime('%d.%m.%Y') }}</p>
+                </div>
+                <div class="item_head_btns">
+                    <div class="item_head_btn expand"></div>
+                </div>
+            </div>
+            <div class="item_info">
+                <p>От кого: {{ item.customer.name }}</p>
+                <p>Транспорт: {{ item.transport.name }}</p>
+                <p>Временной промежуток: {{ item.start.strftime('%d.%m.%Y') }} - {{ item.end.strftime('%d.%m.%Y') }}</p>
+                <p>Причина: {{ item.task }}</p>
+                <div class="item_info_btns">
+                    <a href="/dispatcher/complete/{{ item.id }}" class="item_info_btn stop">ЗАВЕРШИТЬ</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}

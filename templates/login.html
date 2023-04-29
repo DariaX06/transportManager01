@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="form_title">Авторизация</div>
+    <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.type(class="input_form select", type="select") }}
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+            {{ form.email(class="input_form", type="email", placeholder='Эл. почта') }}
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+            {{ form.password(class="input_form", type="password", placeholder='Пароль') }}
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+        {{ form.submit(type="submit", class="button") }}
+        <div class="error">{{ message }}</div>
+    </form>
+</div>
+{% endblock %}

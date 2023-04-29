@@ -1,0 +1,26 @@
+{% extends "base_form.html" %}
+
+{% block content %}
+    <form action="" method="post">
+        <div class="form_title">Добавить транспорт</div>
+            {{ form.hidden_tag() }}
+
+            {{ form.name(class="input_form", type="text", placeholder='Название') }}
+            {% for error in form.name.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+            {{ form.coordinates(class="input_form", type="text", placeholder='Координаты') }}
+            {% for error in form.coordinates.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        <p>{{ form.state() }} {{ form.state.label }}</p>
+
+        {{ form.submit(type="submit", class="button") }}
+        <div class="error">{{ message }}</div>
+    </form>
+{% endblock %}
